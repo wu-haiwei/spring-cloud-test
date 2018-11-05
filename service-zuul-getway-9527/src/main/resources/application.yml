@@ -1,0 +1,22 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: service-zuul-getway
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: service-zuul-getway-9527
+
+zuul:
+  prefix: /haiwei
+  ignored-services: "*"
+  routes:
+    orderp.serviceId: order-service
+    orderp.path: /orderp/**
